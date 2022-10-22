@@ -8,6 +8,15 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        layer_2 {
+            bindings = <&mo 2>;
+            key-positions = <42 47>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -34,6 +43,15 @@
         &kp TAB  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS        &trans                                             &trans  &kp LEFT_ARROW    &kp UP_ARROW  &kp RIGHT_ARROW        &trans     &trans
  &kp LEFT_SHIFT          &trans           &trans                &trans                 &trans        &trans     &trans  &trans   &trans   &trans        &trans        &kp HOME  &kp DOWN_ARROW          &kp END        &trans  &kp RCTRL
                                                              &kp LCTRL           &kp LEFT_WIN         &mo 1  &kp SPACE  &trans  &kp RET  &kp DEL         &mo 1    &kp LEFT_ALT          &trans
+            >;
+        };
+
+        Layer_2 {
+            bindings = <
+ &trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+ &trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+ &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                         &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
