@@ -11,15 +11,15 @@
 #include <dt-bindings/zmk/outputs.h>
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        layer_2 {
-            bindings = <&mo 2>;
-            key-positions = <42 47>;
-            layers = <0 1 2>;
-        };
-    };
+//    combos {
+//        compatible = "zmk,combos";
+//
+//        layer_2 {
+//            bindings = <&mo 2>;
+//            key-positions = <42 47>;
+//            layers = <0 1 2>;
+//        };
+//    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -50,13 +50,13 @@
             >;
         };
 
-        Layer_2 {
-            bindings = <
- &trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans             &trans           &trans  &trans
- &trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans    &rgb_ug RGB_EFF  &rgb_ug RGB_TOG  &trans
- &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &ext_power EP_TOG     &out OUT_TOG  &trans
-                         &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-        };
+//        Layer_2 {
+//            bindings = <
+// &trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans             &trans           &trans  &trans
+// &trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans    &rgb_ug RGB_EFF  &rgb_ug RGB_TOG  &trans
+// &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &ext_power EP_TOG     &out OUT_TOG  &trans
+//                         &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+//            >;
+//        };
     };
 };
