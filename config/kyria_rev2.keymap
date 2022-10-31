@@ -1,3 +1,7 @@
+// ################################################################
+// ! This keymap is made to work with the SWEDISH keyboard layout !
+// ################################################################
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
@@ -13,15 +17,54 @@
     //    };
 
     macros {
-        ZMK_MACRO(
-            LBRKT,
-            wait-ms = <30>;
-            tap-ms = <30>;
+        LSQBRKT: left_square_bracket {
+            compatible = "zmk,behavior-macro";
+            label = "left_square_bracket";
+            #binding-cells = <0>;
+            wait-ms = <20>;
+            tap-ms = <20>;
             bindings =
                 <&macro_press    &kp RIGHT_ALT>,
-                <&macro_tap      &kp NUMBER_8>,
+                <&macro_tap      &kp N8>,
                 <&macro_release  &kp RALT>;
-        )
+        };
+
+        RSQBRKT: right_square_bracket {
+            compatible = "zmk,behavior-macro";
+            label = "right_square_bracket";
+            #binding-cells = <0>;
+            wait-ms = <20>;
+            tap-ms = <20>;
+            bindings =
+                <&macro_press    &kp RIGHT_ALT>,
+                <&macro_tap      &kp N9>,
+                <&macro_release  &kp RALT>;
+        };
+
+        LBRCE: left_brace {
+            compatible = "zmk,behavior-macro";
+            label = "left_brace";
+            #binding-cells = <0>;
+            wait-ms = <20>;
+            tap-ms = <20>;
+            bindings =
+                <&macro_press    &kp RIGHT_ALT>,
+                <&macro_tap      &kp N7>,
+                <&macro_release  &kp RALT>;
+        };
+
+        RBRCE: right_brace {
+            compatible = "zmk,behavior-macro";
+            label = "right_brace";
+            #binding-cells = <0>;
+            wait-ms = <20>;
+            tap-ms = <20>;
+            bindings =
+                <&macro_press    &kp RIGHT_ALT>,
+                <&macro_tap      &kp N0>,
+                <&macro_release  &kp RALT>;
+        };
+
     };
 
     keymap {
@@ -29,25 +72,25 @@
 
         Layer_0 {
             // ---------------------------------------------------------------------------------------------------------------------------------
-            // |  ESC  |  Q  |  W  |  E   |  R   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |   \  |
-            // |  TAB  |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |   '  |
-            // | SHIFT |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | L SHIFT | L SHIFT |  N   |  M    |  ,    |  .   |   /   | CTRL |
-            //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
+            // |  ESC  |  Q  |  W  |   E   |  R   |  T  |                                     |  Y  |  U   |  I    |  O  |  P  |   Å   |
+            // |  TAB  |  A  |  S  |   D   |  F   |  G  |                                     |  H  |  J   |  K    |  L  |  Ö  |   Ä   |
+            // | SHIFT |  Z  |  X  |   C   |  V   |  B  | LCTRL |  LALT  |   |  RALT  | RCTRL |  N  |  M   |  ,    |  .  |  -  | SHIFT |
+            //                     | LCTRL | LWIN | L 1 | SPACE | LSHIFT |   | RETURN | BKSPC | L 1 | RWIN | RCTRL |
 
             bindings = <
-&kp ESC     &kp Q   &kp W   &kp E       &kp R      &kp T                                                         &kp Y   &kp U      &kp I       &kp O     &kp P          &kp LEFT_BRACKET
-&kp TAB     &kp A   &kp S   &kp D       &kp F      &kp G                                                         &kp H   &kp J      &kp K       &kp L     &kp SQT        &kp SEMICOLON
-&kp LSHFT   &kp Z   &kp X   &kp C       &kp V      &kp B   &kp LCTRL   &kp LALT       &kp RALT   &kp RCTRL       &kp N   &kp M      &kp COMMA   &kp DOT   &kp QUESTION   &kp RSHIFT
+&kp ESC     &kp Q   &kp W   &kp E       &kp R      &kp T                                                         &kp Y   &kp U      &kp I       &kp O     &kp P       &kp LEFT_BRACKET
+&kp TAB     &kp A   &kp S   &kp D       &kp F      &kp G                                                         &kp H   &kp J      &kp K       &kp L     &kp SQT     &kp SEMICOLON
+&kp LSHFT   &kp Z   &kp X   &kp C       &kp V      &kp B   &kp LCTRL   &kp LALT       &kp RALT   &kp RCTRL       &kp N   &kp M      &kp COMMA   &kp DOT   &kp SLASH   &kp RSHIFT
                             &kp LCTRL   &kp LWIN   &mo 1   &kp SPACE   &kp LSHIFT     &kp RET    &kp BACKSPACE   &mo 1   &kp RWIN   &kp RCTRL
             >;
         };
 
         Layer_1 {
             bindings = <
-&trans   &kp NUMBER_1     &kp NUMBER_2      &kp NUMBER_3              &kp NUMBER_4               &kp NUMBER_5                                                                 &kp NUMBER_6        &kp NUMBER_7     &kp NUMBER_8     &kp NUMBER_9      &kp NUMBER_0   &trans
-&trans   &kp LEFT_BRACE   &kp RIGHT_BRACE   &kp KP_LEFT_PARENTHESIS   &kp KP_RIGHT_PARENTHESIS   &LBRKT                                                                       &kp DOUBLE_QUOTES   &kp LEFT_ARROW   &kp UP_ARROW     &kp RIGHT_ARROW   &trans         &trans
-&trans   &kp KP_SLASH     &kp ASTERISK      &kp LEFT_BRACKET          &kp RIGHT_BRACKET          &kp QUESTION    &kp K_VOLUME_DOWN   &kp K_VOLUME_UP      &trans    &trans    &kp SINGLE_QUOTE    &kp HOME         &kp DOWN_ARROW   &kp END           &trans         &trans
-                                            &trans                    &trans                     &trans          &trans              &kp K_PLAY_PAUSE     &trans    &kp DEL   &trans              &trans           &trans
+&trans   &kp N1              &kp N2             &kp N3                  &kp N4   &kp N5                                                                         &kp N6          &kp N7           &kp N8           &kp N9            &kp N0      &trans
+&trans   &kp DOUBLE_QUOTES   &kp LESS_THAN      &kp LEFT_PARENTHESIS    &LBRCE   &LSQBRKT                                                                       &kp MINUS       &kp LEFT_ARROW   &kp UP_ARROW     &kp RIGHT_ARROW   &kp PG_UP   &trans
+&trans   &kp BACKSLASH       &kp GREATER_THAN   &kp RIGHT_PARENTHESIS   &RBRCE   &RSQBRKT   &kp K_VOLUME_DOWN   &kp K_VOLUME_UP             &trans    &trans    &kp KP_DIVIDE   &kp HOME         &kp DOWN_ARROW   &kp END           &kp PG_DN   &trans
+                                                &trans                  &trans   &trans     &trans              &lt K_PLAY_PAUSE K_MUTE     &trans    &kp DEL   &trans          &trans           &trans
             >;
         };
 
