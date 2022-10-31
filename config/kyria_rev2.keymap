@@ -3,8 +3,8 @@
 // ################################################################
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 
 / {
     combos {
@@ -70,11 +70,11 @@
         compatible = "zmk,keymap";
 
         Layer_0 {
-            // ---------------------------------------------------------------------------------------------------------------------------------
-            // |  ESC  |  Q  |  W  |   E   |  R   |  T  |                                     |  Y  |  U   |  I    |  O  |  P  |   Å   |
-            // |  TAB  |  A  |  S  |   D   |  F   |  G  |                                     |  H  |  J   |  K    |  L  |  Ö  |   Ä   |
-            // | SHIFT |  Z  |  X  |   C   |  V   |  B  | LCTRL |  LALT  |   |  RALT  | RCTRL |  N  |  M   |  ,    |  .  |  -  | SHIFT |
-            //                     | LCTRL | LWIN | L 1 | SPACE | LSHIFT |   | RETURN | BKSPC | L 1 | RWIN | RCTRL |
+// -------------------------------------------------------------------------------------------------------------------------
+// |  ESC  |  Q  |  W  |   E   |  R   |  T  |                                     |  Y  |  U   |  I    |  O  |  P  |   Å   |
+// |  TAB  |  A  |  S  |   D   |  F   |  G  |                                     |  H  |  J   |  K    |  L  |  Ö  |   Ä   |
+// | SHIFT |  Z  |  X  |   C   |  V   |  B  | LCTRL |  LALT  |  |  RALT  | RCTRL |  N  |  M   |  ,;   |  .: |  -  | SHIFT |
+//                     | LCTRL | LWIN | L 1 | SPACE | LSHIFT |  | RETURN | BKSPC | L 1 | RWIN | RCTRL |
 
             bindings = <
 &kp ESC     &kp Q   &kp W   &kp E       &kp R      &kp T                                                         &kp Y   &kp U      &kp I       &kp O     &kp P       &kp LEFT_BRACKET
@@ -85,20 +85,32 @@
         };
 
         Layer_1 {
+// -------------------------------------------------------------------------------------------------------------------------
+// |     |  1  |  2  |  3  |  4  |  5  |                                      |  6  |  7   |  8    |  9   |  0   |     |
+// |     |  "  |  <  |  {  |  (  |  [  |                                      |  ?  | LARR | UARR  | RARR | PGUP |     |
+// |     |  '  |  >  |  }  |  )  |  ]  | VOL D |  VOL U       |  |     |     |  /  | HOME | DARR  | END  | PGDN |     |
+//                   |     |     |     | SPACE | PLPA -> MUTE |  |     | DEL |     |      |       |
+
             bindings = <
 &trans   &kp N1              &kp N2             &kp N3                 &kp N4   &kp N5                                                                         &kp N6          &kp N7           &kp N8           &kp N9            &kp N0      &trans
 &trans   &kp DOUBLE_QUOTES   &kp LESS_THAN      &kp ASTERISK           &LBRCE   &LSQBRKT                                                                       &kp MINUS       &kp LEFT_ARROW   &kp UP_ARROW     &kp RIGHT_ARROW   &kp PG_UP   &trans
 &trans   &kp BACKSLASH       &kp GREATER_THAN   &kp LEFT_PARENTHESIS   &RBRCE   &RSQBRKT   &kp K_VOLUME_DOWN   &kp K_VOLUME_UP             &trans    &trans    &kp KP_DIVIDE   &kp HOME         &kp DOWN_ARROW   &kp END           &kp PG_DN   &trans
-                                                &trans                 &trans   &trans     &trans              &lt K_PLAY_PAUSE K_MUTE     &trans    &kp DEL   &trans          &trans           &trans
+                                                &trans                 &trans   &trans     &trans              &mt K_PLAY_PAUSE K_MUTE     &trans    &kp DEL   &trans          &trans           &trans
             >;
         };
 
         Layer_2 {
+// -------------------------------------------------------------------------------------------------------------------------
+// |     | F1  | F2  | F3  | F4  | F5  |                                      | F6  | F7  | F8  | F9  | F10 | F11 |
+// |     |     |     |     |     |     |                                      |     |     |     |     |     | F12 |
+// |     |     |     |     |     |     |     |     |  |     |     |     |     |     |     |     |     |
+//                   |     |     |     |     |     |  |     |     |     |     |     |
+
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans &trans &trans &trans
-&trans  &trans  &trans  &trans  &kp A   &trans                                  &trans  &trans  &trans &trans &trans &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans &trans &trans &trans
-                        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans   &kp F1   &kp F2   &kp F3   &kp F4   &kp F5                                         &kp F6   &kp F7   &kp F8   &kp F9   &kp F10   &kp F11
+&trans   &trans   &trans   &trans   &trans   &trans                                         &trans   &trans   &trans   &trans   &trans    &kp F12
+&trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans     &trans   &trans   &trans   &trans   &trans   &trans   &trans    &trans
+                           &trans   &trans   &trans   &trans   &trans     &trans   &trans   &trans   &trans   &trans
             >;
         };
     };
