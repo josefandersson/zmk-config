@@ -13,18 +13,15 @@
     //    };
 
     macros {
-        bracket_left: bracket_left {
-            compatible = "zmk,behavior-macro";
-            label = "new_macro";
-            #binding-cells = <0>;
+        ZMK_MACRO(
+            LBRKT,
+            wait-ms = <30>;
+            tap-ms = <30>;
             bindings =
-                <&macro_press>,
-                <&kp RIGHT_ALT>,
-                <&macro_tap>,
-                <&kp NUMBER_8>,
-                <&macro_release>,
-                <&kp RALT>;
-        };
+                <&macro_press    &kp RIGHT_ALT>,
+                <&macro_tap      &kp NUMBER_8>,
+                <&macro_release  &kp RALT>;
+        )
     };
 
     keymap {
@@ -48,7 +45,7 @@
         Layer_1 {
             bindings = <
 &trans   &kp NUMBER_1     &kp NUMBER_2      &kp NUMBER_3              &kp NUMBER_4               &kp NUMBER_5                                                                 &kp NUMBER_6        &kp NUMBER_7     &kp NUMBER_8     &kp NUMBER_9      &kp NUMBER_0   &trans
-&trans   &kp LEFT_BRACE   &kp RIGHT_BRACE   &kp KP_LEFT_PARENTHESIS   &kp KP_RIGHT_PARENTHESIS   &bracket_left                                                                &kp DOUBLE_QUOTES   &kp LEFT_ARROW   &kp UP_ARROW     &kp RIGHT_ARROW   &trans         &trans
+&trans   &kp LEFT_BRACE   &kp RIGHT_BRACE   &kp KP_LEFT_PARENTHESIS   &kp KP_RIGHT_PARENTHESIS   &LBRKT                                                                       &kp DOUBLE_QUOTES   &kp LEFT_ARROW   &kp UP_ARROW     &kp RIGHT_ARROW   &trans         &trans
 &trans   &kp KP_SLASH     &kp ASTERISK      &kp LEFT_BRACKET          &kp RIGHT_BRACKET          &kp QUESTION    &kp K_VOLUME_DOWN   &kp K_VOLUME_UP      &trans    &trans    &kp SINGLE_QUOTE    &kp HOME         &kp DOWN_ARROW   &kp END           &trans         &trans
                                             &trans                    &trans                     &trans          &trans              &kp K_PLAY_PAUSE     &trans    &kp DEL   &trans              &trans           &trans
             >;
