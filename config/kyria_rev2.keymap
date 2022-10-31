@@ -10,7 +10,7 @@
     combos {
         compatible = "zmk,combos";
         combo_layer_2 {
-            timeout-ms = <120000>;
+            timeout-ms = <100>;
             bindings = <&mo 2>;
             key-positions = <42 47>;
         };
