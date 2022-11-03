@@ -95,7 +95,7 @@
 &trans   &kp N1              &kp N2             &kp N3                 &kp N4   &kp N5                                                                         &kp N6          &kp N7           &kp N8           &kp N9            &kp N0      &trans
 &trans   &kp DOUBLE_QUOTES   &kp LESS_THAN      &kp ASTERISK           &LBRCE   &LSQBRKT                                                                       &kp MINUS       &kp LEFT_ARROW   &kp UP_ARROW     &kp RIGHT_ARROW   &kp PG_UP   &trans
 &trans   &kp BACKSLASH       &kp GREATER_THAN   &kp LEFT_PARENTHESIS   &RBRCE   &RSQBRKT   &kp K_VOLUME_DOWN   &kp K_VOLUME_UP             &trans    &trans    &kp KP_DIVIDE   &kp HOME         &kp DOWN_ARROW   &kp END           &kp PG_DN   &trans
-                                                &trans                 &trans   &trans     &trans              &mt K_PLAY_PAUSE K_MUTE     &trans    &kp DEL   &trans          &trans           &trans
+                                                &trans                 &trans   &trans     &trans              &mt K_MUTE K_PLAY_PAUSE     &trans    &kp DEL   &trans          &trans           &trans
             >;
         };
 
