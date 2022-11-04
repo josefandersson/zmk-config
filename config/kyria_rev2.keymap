@@ -93,8 +93,8 @@
 
         Layer_0 {
             // -------------------------------------------------------------------------------------------------------------------------
-            // |  ESC  |  Q  |  W  |   E   |  R   |  T  |                                     |  Y  |  U   |  I    |  O  |  P  |   Å   |
-            // |  TAB  |  A  |  S  |   D   |  F   |  G  |                                     |  H  |  J   |  K    |  L  |  Ö  |   Ä   |
+            // |  ESC  |  Q  |  W  |   E   |  R   |  T  |                                    |  Y  |  U   |   I   |  O  |  P  |   Å   |
+            // |  TAB  |  A  |  S  |   D   |  F   |  G  |                                    |  H  |  J   |   K   |  L  |  Ö  |   Ä   |
             // | SHIFT |  Z  |  X  |   C   |  V   |  B  | LCTRL |  LALT  |  |  RALT  | RCTRL |  N  |  M   |  ,;   |  .: |  -  | SHIFT |
             //                     | LCTRL | LWIN | L 1 | SPACE | LSHIFT |  | RETURN | BKSPC | L 1 | RWIN | RCTRL |
 
@@ -135,21 +135,6 @@
  &out OUT_TOG        &trans        &trans        &trans        &trans        &trans                                  &trans  &trans  &trans  &trans   &trans  &kp F12
    &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans
                                                  &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-        };
-
-        Gaming {
-            // ----------------------------------------------------------------------------------------------------------------
-            // |     | F1  | F2  | F3  | F4  | F5  |                                      | F6  | F7  | F8  | F9  | F10 | F11 |
-            // |     |     |     |     |     |     |                                      |     |     |     |     |     | F12 |
-            // |     |     |     |     |     |     |     |     |  |     |     |     |     |     |     |     |     |
-            //                   |     |     |     |     |     |  |     |     |     |     |     |
-
-            bindings = <
- &trans      &trans   &kp Q   &kp W   &kp E  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &kp LSHIFT   &kp A   &kp S   &kp D  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
- &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                             &trans  &trans   &mo 3  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
