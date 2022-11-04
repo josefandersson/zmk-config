@@ -79,6 +79,8 @@
     keymap {
         compatible = "zmk,keymap";
 
+        sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+
         Layer_0 {
             // -------------------------------------------------------------------------------------------------------------------------
             // |  ESC  |  Q  |  W  |   E   |  R   |  T  |                                     |  Y  |  U   |  I    |  O  |  P  |   Å   |
