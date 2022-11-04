@@ -79,7 +79,6 @@
 
     keymap {
         compatible = "zmk,keymap";
-        sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
 
         Layer_0 {
             // -------------------------------------------------------------------------------------------------------------------------
@@ -94,6 +93,8 @@
  &kp LSHFT   &kp Z   &kp X      &kp C     &kp V   &kp B  &kp LCTRL    &kp LALT  &kp RALT      &kp RCTRL   &kp N     &kp M  &kp COMMA  &kp DOT      &kp SLASH  &kp C_PLAY_PAUSE
                             &kp LCTRL  &kp LWIN   &mo 1  &kp SPACE  &kp LSHIFT   &kp RET  &kp BACKSPACE   &mo 1  &kp RWIN  &kp RCTRL
             >;
+
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
         Layer_1 {
