@@ -26,7 +26,15 @@
         , <&macro_pause_for_release>\
         , <&macro_release &mo LAYER>\
         , <&macro_tap &rgb_ug RGB_COLOR_HSB(0, 0, 30)>;\
-};
+}
+
+#define BEHAVIOR_MM(B1, B2, MODS) {/
+    compatible = "zmk,behavior-mod-morph";/
+    // label = "GRAVE_ESCAPE";/
+    #binding-cells = <0>;/
+    bindings = <&kp B1>, <&kp B2>;/
+    mods = <MODS>;
+}
 
 / {
     combos {
@@ -40,8 +48,8 @@
     };
 
     macros {
-        mc_raise: mc_raise MACRO_MC(1, RGB_COLOR_HSB(252, 100, 50))
-        mc_lower: mc_lower MACRO_MC(2, RGB_COLOR_HSB(152, 100, 50))
+        mc_raise: mc_raise MACRO_MC(1, RGB_COLOR_HSB(252, 100, 50));
+        mc_lower: mc_lower MACRO_MC(2, RGB_COLOR_HSB(152, 100, 50));
     };
 
     behaviors {
@@ -53,6 +61,8 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+
+        kp_ques_plus: kp_ques_plus BEHAVIOR_MM(LS(MINUS), MINUS, (MOD_LSFT|MOD_RSFT));
     };
 
     keymap {
@@ -83,10 +93,10 @@
             //                   |     |     |     | SPACE | PLPA -> MUTE |  |     | DEL |     |      |       |
 
             bindings = <
-&trans  &kp N1             &kp N2            &kp N3                &kp N4      &kp N5                                                                      &kp N6         &kp N7          &kp N8          &kp N9           &kp N0     &trans
-&trans  &kp DOUBLE_QUOTES  &kp LESS_THAN     &kp ASTERISK          &kp RA(N7)  &kp RA(N8)                                                                  &kp MINUS      &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &kp PG_UP  &trans
-&trans  &kp BACKSLASH      &kp GREATER_THAN  &kp LEFT_PARENTHESIS  &kp RA(N0)  &kp RA(N9)  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP             &trans  &trans   &kp KP_DIVIDE  &kp HOME        &kp DOWN_ARROW  &kp END          &kp PG_DN  &trans
-                                             &trans                &trans      &trans      &trans             &mt K_MUTE C_PLAY_PAUSE     &trans  &kp DEL  &trans         &trans          &trans
+&trans  &kp N1             &kp N2            &kp N3      &kp N4      &kp N5                                                                      &kp N6         &kp N7          &kp N8          &kp N9           &kp N0     &trans
+&trans  &kp DOUBLE_QUOTES  &kp LESS_THAN     &kp LS(N8)  &kp RA(N7)  &kp RA(N8)                                                                  &kp_ques_plus  &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &kp PG_UP  &trans
+&trans  &kp BACKSLASH      &kp GREATER_THAN  &kp LS(N9)  &kp RA(N0)  &kp RA(N9)  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP             &trans  &trans   &kp KP_DIVIDE  &kp HOME        &kp DOWN_ARROW  &kp END          &kp PG_DN  &trans
+                                             &trans      &trans      &trans      &trans             &mt K_MUTE C_PLAY_PAUSE     &trans  &kp DEL  &trans         &trans          &trans
             >;
         };
 
