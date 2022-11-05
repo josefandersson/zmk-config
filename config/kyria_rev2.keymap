@@ -26,29 +26,39 @@
 #define SV_PLUS MINUS
 // ?
 #define SV_QUESTION LS(MINUS)
+// å
+#define SV_AO LEFT_BRACKET
+// ä
+#define SV_AE SQT
+// ö
+#define SV_OE SEMICOLON
+// '
+#define SV_SINGLEQ BACKSLASH
+// "
+#define SV_DOUBLEQ LS(N2)
+//
+//#define SV_
+//
+//#define SV_
+//
+//#define SV_
+//
+//#define SV_
+//
+//#define SV_
+//
+//#define SV_
 
-//#define SV_
-//#define SV_
-//#define SV_
-//#define SV_
-//#define SV_
-//#define SV_
-//#define SV_
-//#define SV_
-//#define SV_
-//#define SV_
-//#define SV_
-
-#define DEFAULT 0
-#define LOWER   1
-#define RAISE   2
+//&caps_word {
+//    continue-list = <UNDERSCORE MINUS>;
+//};
 
 / {
     combos {
         compatible = "zmk,combos";
 
         combo_layer_2 {
-            timeout-ms = <100>;
+            timeout-ms = <50>;
             bindings = <&mc_raise>;
             key-positions = <42 47>;
         };
@@ -93,6 +103,14 @@
             bindings = <&kp>, <&kp>;
         };
 
+        td_mt: tap_dance_mod_tap {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_MOD_TAP";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mt LSHIFT CAPSLOCK>, <&mc_raise>;
+        };
+
         kpquesplus: kp_ques_plus {
             compatible = "zmk,behavior-mod-morph";
             label = "kp questionmark plus";
@@ -113,10 +131,10 @@
             //                     | LCTRL | LWIN | L 1 | SPACE | LSHIFT |  | RETURN | BKSPC | L 1 | RWIN | RCTRL |
 
             bindings = <
-&kp ESC     &kp Q        &kp W        &kp E         &kp R          &kp T                                                             &kp Y       &kp U          &kp I         &kp O        &kp P                &kp LEFT_BRACKET
-&kp TAB     &hm LGUI A   &hm LALT S   &hm LCTRL D   &hm LSHIFT F   &kp G                                                             &kp H       &hm RSHIFT J   &hm RCTRL K   &hm LALT L   &hm RGUI SEMICOLON   &kp SQT
-&kp LSHFT   &kp Z        &kp X        &kp C         &kp V          &kp B       &kp LCTRL   &kp LALT       &kp RALT   &kp RCTRL       &kp N       &kp M          &kp COMMA     &kp DOT      &kp SLASH            &kp C_PLAY_PAUSE
-                                      &kp LCTRL     &kp LWIN       &mc_lower   &kp SPACE   &kp LSHIFT     &kp RET    &kp BACKSPACE   &mc_lower   &kp RWIN       &kp RCTRL
+&kp ESC     &kp Q        &kp W        &kp E         &kp R          &kp T                                                             &kp Y       &kp U          &kp I         &kp O        &kp P            &kp SV_AO
+&kp TAB     &hm LGUI A   &hm LALT S   &hm LCTRL D   &hm LSHIFT F   &kp G                                                             &kp H       &hm RSHIFT J   &hm RCTRL K   &hm LALT L   &hm RGUI SV_OE   &kp SV_AE
+&kp LSHFT   &kp Z        &kp X        &kp C         &kp V          &kp B       &kp LCTRL   &kp LALT       &kp RALT   &kp RCTRL       &kp N       &kp M          &kp COMMA     &kp DOT      &kp SLASH        &kp C_PLAY_PAUSE
+                                      &kp LCTRL     &kp LWIN       &mc_lower   &kp SPACE   &td_mt         &kp RET    &kp BACKSPACE   &mc_lower   &kp RWIN       &kp RCTRL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
@@ -130,10 +148,10 @@
             //                   |     |     |     | SPACE | PLPA -> MUTE |  |     | DEL |     |      |       |
 
             bindings = <
-&trans  &kp N1             &kp N2            &kp N3      &kp N4        &kp N5                                                                      &kp N6         &kp N7          &kp N8          &kp N9           &kp N0     &trans
-&trans  &kp DOUBLE_QUOTES  &kp LESS_THAN     &kp LS(N8)  &kp SV_LBRAC  &kp RA(N8)                                                                  &kpquesplus  &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &kp PG_UP  &trans
-&trans  &kp BACKSLASH      &kp GREATER_THAN  &kp LS(N9)  &kp RA(N0)    &kp RA(N9)  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP             &trans  &trans   &kp KP_DIVIDE  &kp HOME        &kp DOWN_ARROW  &kp END          &kp PG_DN  &trans
-                                             &trans      &trans        &trans      &trans             &mt K_MUTE C_PLAY_PAUSE     &trans  &kp DEL  &trans         &trans          &trans
+&trans  &kp N1          &kp N2            &kp N3       &kp N4        &kp N5                                                                        &kp N6         &kp N7          &kp N8          &kp N9           &kp N0     &trans
+&trans  &kp SV_SINGLEQ  &kp LESS_THAN     &kp SV_LPAR  &kp SV_LBRAC  &kp SV_LBRAK                                                                  &kpquesplus    &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &kp PG_UP  &trans
+&trans  &kp SV_DOUBLEQ  &kp GREATER_THAN  &kp SV_RPAR  &kp SV_RBRAC  &kp SV_RBRAK  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP             &trans  &trans   &kp KP_DIVIDE  &kp HOME        &kp DOWN_ARROW  &kp END          &kp PG_DN  &trans
+                                          &trans       &trans        &trans        &trans             &mt K_MUTE C_PLAY_PAUSE     &trans  &kp DEL  &trans         &trans          &trans
             >;
         };
 
