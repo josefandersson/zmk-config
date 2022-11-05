@@ -1,0 +1,37 @@
+// For the Swedish keymap
+
+// (
+#define SV_LPAR LS(N8)
+
+// )
+#define SV_RPAR LS(N9)
+
+// {
+#define SV_LBRAC RA(N7)
+
+// }
+#define SV_RBRAC RA(N0)
+
+// [
+#define SV_LBRAK RA(N8)
+
+// ]
+#define SV_RBRAK RA(N9)
+
+// +
+#define SV_PLUS MINUS
+
+// ?
+#define SV_QUESTION LS(MINUS)
+
+//#define SV_
+//#define SV_
+//#define SV_
+//#define SV_
+//#define SV_
+//#define SV_
+//#define SV_
+//#define SV_
+//#define SV_
+//#define SV_
+//#define SV_
