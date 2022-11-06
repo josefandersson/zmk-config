@@ -126,46 +126,11 @@
         };
 
         mm_n2_at: MM_SHIFT(mm_n2_at, N2, SV_AT);
-
-        mm_sngle_dble: mm_sngle_dble {
-            compatible = "zmk,behavior-mod-morph";
-            label = "mm_sngle_dble";
-            #binding-cells = <0>;
-            bindings = <&kp SV_DOUBLEQ>, <&kp SV_SINGLEQ>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        mm_eql_astrx: mm_eql_astrx {
-            compatible = "zmk,behavior-mod-morph";
-            label = "mm_eql_astrx";
-            #binding-cells = <0>;
-            bindings = <&kp SV_EQUAL>, <&kp SV_ASTERIX>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        mm_lpar_pipe: mm_lpar_pipe {
-            compatible = "zmk,behavior-mod-morph";
-            label = "mm_lpar_pipe";
-            #binding-cells = <0>;
-            bindings = <&kp SV_LPAR>, <&kp SV_PIPE>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        mm_qstn_plus: mm_qstn_plus {
-            compatible = "zmk,behavior-mod-morph";
-            label = "mm_qstn_plus";
-            #binding-cells = <0>;
-            bindings = <&kp SV_QUESTION>, <&kp SV_PLUS>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        mm_slsh_bkslsh: mm_slsh_bkslsh {
-            compatible = "zmk,behavior-mod-morph";
-            label = "mm_slsh_bkslsh";
-            #binding-cells = <0>;
-            bindings = <&kp SV_SLASH>, <&kp SV_BACKSLASH>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+        mm_sngle_dble: MM_SHIFT(mm_sngle_dble, SV_DOUBLEQ, SV_SINGLEQ);
+        mm_eql_astrx: MM_SHIFT(mm_eql_astrx, SV_EQUAL, SV_ASTERIX);
+        mm_lpar_pipe: MM_SHIFT(mm_lpar_pipe, SV_LPAR, SV_PIPE);
+        mm_qstn_plus: MM_SHIFT(mm_qstn_plus, SV_QUESTION, SV_PLUS);
+        mm_slsh_bkslsh: MM_SHIFT(mm_slsh_bkslsh, SV_SLASH, SV_BACKSLASH);
     };
 
     keymap {
