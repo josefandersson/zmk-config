@@ -52,20 +52,18 @@
 #define SV_EQUAL LS(N0)
 // *
 #define SV_ASTERIX LS(BACKSLASH)
+// $
+#define SV_DOLLAR LA(N4)
+// `
+#define SV_BACKTICK LS(EQUAL)
+// ^
+#define SV_EXPONENT LS(RIGHT_BRACKET)
+// ~
+#define SV_TILDE RA(RIGHT_BRACKET)
+// §
+#define SV_PARAGRAPH GRAVE
+//
 //#define SV_
-//#define SV_
-
-//&caps_word {
-//    continue-list = <UNDERSCORE MINUS>;
-//};
-
-#define MM_SHIFT(LABEL, KEYA, KEYB) LABEL {\
-    compatible = "zmk,behavior-mod-morph";\
-    label = "LABEL";\
-    #binding-cells = <0>;\
-    bindings = <&kp KEYA>, <&kp KEYB>;\
-    mods = <(MOD_LSFT|MOD_RSFT)>;\
-}
 
 / {
     combos {
@@ -125,12 +123,93 @@
             bindings = <&mt LSHIFT CAPSLOCK>, <&mc_raise>;
         };
 
-        mm_n2_at: MM_SHIFT(mm_n2_at, N2, SV_AT);
-        mm_sngle_dble: MM_SHIFT(mm_sngle_dble, SV_DOUBLEQ, SV_SINGLEQ);
-        mm_eql_astrx: MM_SHIFT(mm_eql_astrx, SV_EQUAL, SV_ASTERIX);
-        mm_lpar_pipe: MM_SHIFT(mm_lpar_pipe, SV_LPAR, SV_PIPE);
-        mm_qstn_plus: MM_SHIFT(mm_qstn_plus, SV_QUESTION, SV_PLUS);
-        mm_slsh_bkslsh: MM_SHIFT(mm_slsh_bkslsh, SV_SLASH, SV_BACKSLASH);
+        mm_n2_at: mm_n2_at {
+            compatible = "zmk,behavior-mod-morph";
+            label = "mm_n2_at";
+            #binding-cells = <0>;
+            bindings = <&kp N2>, <&kp SV_AT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        mm_n4_dolr: mm_n4_dolr {
+            compatible = "zmk,behavior-mod-morph";
+            label = "mm_n4_dolr";
+            #binding-cells = <0>;
+            bindings = <&kp N4>, <&kp SV_DOLLAR>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        mm_n7_bcktik: mm_n7_bcktik {
+            compatible = "zmk,behavior-mod-morph";
+            label = "mm_n7_bcktik";
+            #binding-cells = <0>;
+            bindings = <&kp N7>, <&kp SV_BACKTICK>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        mm_n8_exp: mm_n8_exp {
+            compatible = "zmk,behavior-mod-morph";
+            label = "mm_n8_exp";
+            #binding-cells = <0>;
+            bindings = <&kp N8>, <&kp SV_EXPONENT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        mm_n9_tlde: mm_n9_tlde {
+            compatible = "zmk,behavior-mod-morph";
+            label = "mm_n9_tlde";
+            #binding-cells = <0>;
+            bindings = <&kp N9>, <&kp SV_TILDE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        mm_n0_pargh: mm_n0_pargh {
+            compatible = "zmk,behavior-mod-morph";
+            label = "mm_n0_pargh";
+            #binding-cells = <0>;
+            bindings = <&kp N0>, <&kp SV_PARAGRAPH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        mm_sngle_dble: mm_sngle_dble {
+            compatible = "zmk,behavior-mod-morph";
+            label = "mm_sngle_dble";
+            #binding-cells = <0>;
+            bindings = <&kp SV_DOUBLEQ>, <&kp SV_SINGLEQ>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        mm_eql_astrx: mm_eql_astrx {
+            compatible = "zmk,behavior-mod-morph";
+            label = "mm_eql_astrx";
+            #binding-cells = <0>;
+            bindings = <&kp SV_EQUAL>, <&kp SV_ASTERIX>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        mm_lpar_pipe: mm_lpar_pipe {
+            compatible = "zmk,behavior-mod-morph";
+            label = "mm_lpar_pipe";
+            #binding-cells = <0>;
+            bindings = <&kp SV_LPAR>, <&kp SV_PIPE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        mm_qstn_plus: mm_qstn_plus {
+            compatible = "zmk,behavior-mod-morph";
+            label = "mm_qstn_plus";
+            #binding-cells = <0>;
+            bindings = <&kp SV_QUESTION>, <&kp SV_PLUS>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        mm_slsh_bkslsh: mm_slsh_bkslsh {
+            compatible = "zmk,behavior-mod-morph";
+            label = "mm_slsh_bkslsh";
+            #binding-cells = <0>;
+            bindings = <&kp SV_SLASH>, <&kp SV_BACKSLASH>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     keymap {
@@ -155,15 +234,15 @@
 
         Layer_1 {
             // --------------------------------------------------------------------------------------------------------------------
-            // |     | 1!  | 2@  | 3#  | 4$  | 5%  |                                     | 6&  |  7   |  8    |  9   |  0   |     |
+            // |     | 1!  | 2@  | 3#  | 4$  | 5%  |                                     | 6&  |  7`  |  8^   |  9~  |  0§  |     |
             // |     | "'  |  <  |  (  | {|  |  [  |                                     | ?+  | LARR | UARR  | RARR | PGUP |     |
             // |     | =*  |  >  |  )  |  }  |  ]  | VOL D |  VOL U       |  |     |     | /\  | HOME | DARR  | END  | PGDN |     |
             //                   |     |     |     | SPACE | PLPA -> MUTE |  |     | DEL |     |      |       |
 
             bindings = <
-&trans  &kp N1          &mm_n2_at    &kp N3         &kp N4        &kp N5                                                                        &kp N6           &kp N7          &kp N8          &kp N9           &kp N0     &trans
-&trans  &mm_sngle_dble  &kp SV_LESS  &mm_lpar_pipe  &kp SV_LBRAC  &kp SV_LBRAK                                                                  &mm_qstn_plus    &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &kp PG_UP  &trans
-&trans  &mm_eql_astrx   &kp SV_GREA  &kp SV_RPAR    &kp SV_RBRAC  &kp SV_RBRAK  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP             &trans  &trans   &mm_slsh_bkslsh  &kp HOME        &kp DOWN_ARROW  &kp END          &kp PG_DN  &trans
+&trans  &kp N1          &mm_n2_at    &kp N3         &mm_n4_dolr   &kp N5                                                                        &kp N6           &mm_n7_bcktik   &mm_n8_exp      &mm_n9_tlde      &mm_n0_pargh     &trans
+&trans  &mm_sngle_dble  &kp SV_LESS  &mm_lpar_pipe  &kp SV_LBRAC  &kp SV_LBRAK                                                                  &mm_qstn_plus    &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &kp PG_UP        &trans
+&trans  &mm_eql_astrx   &kp SV_GREA  &kp SV_RPAR    &kp SV_RBRAC  &kp SV_RBRAK  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP             &trans  &trans   &mm_slsh_bkslsh  &kp HOME        &kp DOWN_ARROW  &kp END          &kp PG_DN        &trans
                                      &trans         &trans        &trans        &trans             &mt K_MUTE C_PLAY_PAUSE     &trans  &kp DEL  &trans           &trans          &trans
             >;
         };
@@ -176,9 +255,9 @@
             //                         |      |      |      |     |     |  |     |     |     |     |     |
 
             bindings = <
-&trans        &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                   &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
-&out OUT_TOG  &trans        &trans        &trans        &trans        &trans                                   &trans  &trans  &trans  &trans  &trans   &kp F12
-&bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans
+&trans        &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                           &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
+&out OUT_TOG  &trans        &trans        &trans        &trans        &trans                                           &trans  &trans  &trans  &trans  &trans   &kp F12
+&bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans
                                           &trans        &trans        &trans        &trans     &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
