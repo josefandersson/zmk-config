@@ -53,7 +53,7 @@
 // *
 #define SV_ASTERIX LS(BACKSLASH)
 // $
-#define SV_DOLLAR LA(N4)
+#define SV_DOLLAR RA(N4)
 // `
 #define SV_BACKTICK LS(EQUAL)
 // ^
