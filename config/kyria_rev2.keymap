@@ -62,8 +62,8 @@
 #define SV_TILDE RA(RIGHT_BRACKET)
 // §
 #define SV_PARAGRAPH GRAVE
-//
-//#define SV_
+// ´
+#define SV_GRAVE EQUAL
 
 / {
     combos {
@@ -180,11 +180,11 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        mm_eql_astrx: mm_eql_astrx {
+        mm_eql_grve: mm_eql_grve {
             compatible = "zmk,behavior-mod-morph";
-            label = "mm_eql_astrx";
+            label = "mm_eql_grve";
             #binding-cells = <0>;
-            bindings = <&kp SV_EQUAL>, <&kp SV_ASTERIX>;
+            bindings = <&kp SV_EQUAL>, <&kp SV_GRAVE>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -193,6 +193,14 @@
             label = "mm_lpar_pipe";
             #binding-cells = <0>;
             bindings = <&kp SV_LPAR>, <&kp SV_PIPE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        mm_lbrc_astrx: mm_lbrc_astrx {
+            compatible = "zmk,behavior-mod-morph";
+            label = "mm_lbrc_astrx";
+            #binding-cells = <0>;
+            bindings = <&kp SV_LPAR>, <&kp SV_LBRAC>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -241,10 +249,10 @@
             //                   |     |     |     | SPACE | PLPA -> MUTE |  |     | DEL |     |      |       |
 
             bindings = <
-&trans  &kp N1          &mm_n2_at    &kp N3         &mm_n4_dolr   &kp N5                                                                        &kp N6           &mm_n7_bcktik   &mm_n8_exp      &mm_n9_tlde      &mm_n0_pargh     &trans
-&trans  &mm_sngle_dble  &kp SV_LESS  &mm_lpar_pipe  &kp SV_LBRAC  &kp SV_LBRAK                                                                  &mm_qstn_plus    &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &kp PG_UP        &trans
-&trans  &mm_eql_astrx   &kp SV_GREA  &kp SV_RPAR    &kp SV_RBRAC  &kp SV_RBRAK  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP             &trans  &trans   &mm_slsh_bkslsh  &kp HOME        &kp DOWN_ARROW  &kp END          &kp PG_DN        &trans
-                                     &trans         &trans        &trans        &trans             &mt K_MUTE C_PLAY_PAUSE     &trans  &kp DEL  &trans           &trans          &trans
+&trans  &kp N1          &mm_n2_at    &kp N3         &mm_n4_dolr     &kp N5                                                                        &kp N6           &mm_n7_bcktik   &mm_n8_exp      &mm_n9_tlde      &mm_n0_pargh     &trans
+&trans  &mm_sngle_dble  &kp SV_LESS  &mm_lpar_pipe  &mm_lbrc_astrx  &kp SV_LBRAK                                                                  &mm_qstn_plus    &kp LEFT_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &kp PG_UP        &trans
+&trans  &mm_eql_grve    &kp SV_GREA  &kp SV_RPAR    &kp SV_RBRAC    &kp SV_RBRAK  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP             &trans  &trans   &mm_slsh_bkslsh  &kp HOME        &kp DOWN_ARROW  &kp END          &kp PG_DN        &trans
+                                     &trans         &trans          &trans        &trans             &mt K_MUTE C_PLAY_PAUSE     &trans  &kp DEL  &trans           &trans          &trans
             >;
         };
 
