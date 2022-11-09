@@ -200,7 +200,7 @@
             compatible = "zmk,behavior-mod-morph";
             label = "mm_lbrc_astrx";
             #binding-cells = <0>;
-            bindings = <&kp SV_LPAR>, <&kp SV_LBRAC>;
+            bindings = <&kp SV_LBRAC>, <&kp SV_LBRAC>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
