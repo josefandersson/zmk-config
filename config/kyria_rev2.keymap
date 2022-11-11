@@ -228,7 +228,7 @@
             // -------------------------------------------------------------------------------------------------------------------------
             // |  ESC  |  Q  |  W  |   E   |  R   |  T  |                                    |  Y  |  U   |   I   |  O  |  P  |   Å   |
             // |  TAB  |  A  |  S  |   D   |  F   |  G  |                                    |  H  |  J   |   K   |  L  |  Ö  |   Ä   |
-            // | SHIFT |  Z  |  X  |   C   |  V   |  B  | LCTRL |  LALT  |  |  RALT  | RCTRL |  N  |  M   |  ,;   |  .: |  -  | SHIFT |
+            // | SHIFT |  Z  |  X  |   C   |  V   |  B  | LCTRL | RETURN |  |  RALT  | RCTRL |  N  |  M   |  ,;   |  .: |  -  | SHIFT |
             //                     | LCTRL | LWIN | L 1 | SPACE | LSHIFT |  | RETURN | BKSPC | L 1 | RWIN | RCTRL |
 
             bindings = <
