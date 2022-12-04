@@ -241,7 +241,7 @@
                                       &kp LCTRL     &kp LWIN       &mc_lower   &kp SPACE   &td_mt_shft_cps_rais     &kp RET    &kp BACKSPACE   &mc_lower   &kp RWIN       &kp RCTRL
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+            // sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
         Layer_1 {
